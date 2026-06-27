@@ -249,6 +249,13 @@ init_database()
 # REST API Endpoints
 # ==========================================
 
+@app.route('/', methods=['GET'])
+def health_check():
+    return jsonify({
+        "message": "Glory Simon Interiors API is running",
+        "status": "ok"
+    }), 200
+
 @app.route('/api/auth/login', methods=['POST'])
 def login():
     """
